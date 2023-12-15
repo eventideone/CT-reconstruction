@@ -2,7 +2,7 @@ import torch.utils.data as data
 import glob
 import numpy as np
 
-
+ 
 class my_data_loader(data.Dataset):
     def __init__(self, folder):
         self.low_fdk = sorted(glob.glob(folder + '/*fdk_low_dose_256.npy'))
