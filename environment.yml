@@ -1,4 +1,4 @@
-name: ddrm
+name: ctRecon
 channels:
   - pytorch
   - conda-forge
@@ -139,4 +139,3 @@ dependencies:
   - zstd=1.4.9=haebb681_0
   - pip:
       - torch-fidelity==0.3.0
-prefix: /mnt/store/lzq/anaconda3/envs/ddrm
