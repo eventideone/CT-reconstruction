@@ -2,6 +2,10 @@
 
 This readme document describes how our code runs.
 
+Our code can process both clinical dose and low dose CT images simultaneously by only changing some parameters. Please make sure when reconstructing different doses CT images, there are only files of the specified dose in the folder. For example, if you want to process low dose CT images, please make sure there are only files like `*low_dose*.npy` and target files in the folder.
+
+
+
 ## Prepare the environment
 Our program runs on a Linux system and uses Pytorch version 1.10.
 Please refer to `environment.yml` for a list of conda environments that can be used to run the code. 
