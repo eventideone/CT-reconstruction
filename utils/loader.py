@@ -10,7 +10,7 @@ class my_data_loader(data.Dataset):
         self.low_sino = sorted(glob.glob(folder + '/*fdk_low_dose_256.npy'))
         self.low_sino = sorted(glob.glob(folder + '/*fdk_low_dose_256.npy'))
         self.target = sorted(glob.glob(folder + '/*clean_fdk_256.npy'))
-        if self.low_fdk.__len__() > 0:
+        if self.low_fdk.__len__() >= self.clinical_fdk.__len__():
             self.iflow = 1
         else:
             self.iflow = 0

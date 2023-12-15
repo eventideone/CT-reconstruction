@@ -15,7 +15,7 @@ def my_recon(file):
     if Diffusion.instance is None:
         args, config = parse_args_and_config()
         if file.find('low') != -1:
-            args.sigma_0 = 0.2
+            args.sigma_0 = 0.05
         runner = Diffusion(args, config)
     else:
         runner = Diffusion.instance
