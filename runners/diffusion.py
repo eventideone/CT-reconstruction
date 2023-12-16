@@ -106,7 +106,7 @@ class Diffusion(object):
         Diffusion.instance = self
 
     def sample(self, slices):
-        return self.sample_sequence(model, slices)
+        return self.sample_sequence(self.model, slices)
 
     def sample_sequence(self, model, slices):
         args, config = self.args, self.config
