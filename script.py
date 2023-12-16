@@ -15,12 +15,13 @@ from utils.proc import my_recon
 import os
 
 folder = "npy"
+iflow = True
 
 # Provide a Dataloader functio or loop to iterate over files in folder
 
 # e.g.
 
-dataloader = my_data_loader(folder)
+dataloader = my_data_loader(folder, iflow)
 
 # You can assume that the data format, filenames and folder structure of the test will be the same as the training data.
 
@@ -29,7 +30,7 @@ dataloader = my_data_loader(folder)
 
 # Either pytorch loop, or your own
 for noisy_reconstruction, target_reconstruction in dataloader:
-    reconstruction = my_recon(noisy_reconstruction)
+    reconstruction = my_recon(noisy_reconstruction, iflow)
 
 ##################################
 

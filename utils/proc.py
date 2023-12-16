@@ -6,21 +6,18 @@ from utils.config import parse_args_and_config
 from runners.diffusion import Diffusion
 
 
-def my_recon(file):
-    data = np.load(file)
+def my_recon(data, iflow):
     slices, vd = to_slice(data)
 
     # process
 
     if Diffusion.instance is None:
         args, config = parse_args_and_config()
-        if file.find('low') != -1:
+        if iflow:
             args.sigma_0 = 0.05
         runner = Diffusion(args, config)
     else:
         runner = Diffusion.instance
-
-    logging.info("Now file = {}".format(file))
 
     try:
         volume = runner.sample(slices)
