@@ -96,7 +96,7 @@ class Diffusion(object):
         if self.config.model.use_fp16:
             model.convert_to_fp16()
 
-        ckpt = "../deno/model/pretrainedModel.pt"
+        ckpt = "model/pretrainedModel.pt"
         model.load_state_dict(torch.load(ckpt, map_location=self.device))
         model.to(self.device)
         model.eval()
