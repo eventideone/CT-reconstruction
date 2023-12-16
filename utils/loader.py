@@ -20,6 +20,8 @@ class my_data_loader(data.Dataset):
 
     def __getitem__(self, idx):
         if self.iflow:
+            print(self.low_fdk[idx], self.target[idx])
             return np.load(self.low_fdk[idx]), np.load(self.target[idx])
         else:
+            print(self.clinical_fdk[idx], self.target[idx])
             return np.load(self.clinical_fdk[idx]), np.load(self.target[idx])

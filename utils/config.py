@@ -25,7 +25,7 @@ def parse_args_and_config():
         "--timesteps", type=int, default=20, help="number of steps involved"
     )
     parser.add_argument(
-        "--sigma_0", type=float, default=0.0232, help="Sigma_0"
+        "--sigma_0", type=float, default=0.2, help="Sigma_0"
     )
     parser.add_argument(
         "--eta", type=float, default=0.85, help="Eta"

@@ -91,21 +91,21 @@ class Diffusion(object):
         elif self.model_var_type == "fixedsmall":
             self.logvar = posterior_variance.clamp(min=1e-20).log()
 
-        Diffusion.instance = self
-
-    def sample(self, slices):
-
         config_dict = vars(self.config.model)
         model = create_model(**config_dict)
         if self.config.model.use_fp16:
             model.convert_to_fp16()
 
-        ckpt = "model/pretrainedModel.pt"
+        ckpt = "../deno/model/pretrainedModel.pt"
         model.load_state_dict(torch.load(ckpt, map_location=self.device))
         model.to(self.device)
         model.eval()
         model = torch.nn.DataParallel(model)
+        self.model = model
 
+        Diffusion.instance = self
+
+    def sample(self, slices):
         return self.sample_sequence(model, slices)
 
     def sample_sequence(self, model, slices):
@@ -137,7 +137,6 @@ class Diffusion(object):
         from functions.svd_replacement import Denoising
         H_funcs = Denoising(config.data.channels, self.config.data.image_size, self.device)
 
-        args.sigma_0 = 2 * args.sigma_0  # to account for scaling to [-1,1]
         sigma_0 = args.sigma_0
 
         idx_so_far = 0

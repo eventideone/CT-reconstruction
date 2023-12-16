@@ -14,7 +14,7 @@ def my_recon(data, iflow):
     if Diffusion.instance is None:
         args, config = parse_args_and_config()
         if iflow:
-            args.sigma_0 = 0.05
+            args.sigma_0 = 1.6
         runner = Diffusion(args, config)
     else:
         runner = Diffusion.instance
