@@ -7,8 +7,8 @@ class my_data_loader(data.Dataset):
     def __init__(self, folder, iflow):
         self.low_fdk = sorted(glob.glob(folder + '/*fdk_low_dose_256.npy'))
         self.clinical_fdk = sorted(glob.glob(folder + '/*fdk_clinical_dose_256.npy'))
-        self.low_sino = sorted(glob.glob(folder + '/*fdk_low_dose_256.npy'))
-        self.low_sino = sorted(glob.glob(folder + '/*fdk_low_dose_256.npy'))
+        self.low_sino = sorted(glob.glob(folder + '/*sino_low_dose.npy'))
+        self.clinical_sino = sorted(glob.glob(folder + '/*sino_clinical_dose.npy'))
         self.target = sorted(glob.glob(folder + '/*clean_fdk_256.npy'))
         self.iflow = iflow
 
